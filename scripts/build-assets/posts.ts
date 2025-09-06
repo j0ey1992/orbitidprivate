@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import sharp from 'sharp'
 import { logger } from './logger'
 import { ImageFormats, type ImageSettings } from './types'
@@ -36,12 +37,12 @@ type Cover = {
  */
 async function findLocalCover(post: string): Promise<Cover | null> {
   for (const format of ImageFormats) {
-    const cover = new URL(`${post}/cover.${format}`, POSTS_FOLDER).pathname
+    const cover = join(POSTS_FOLDER, post, `cover.${format}`)
     try {
       const data = await readFile(cover)
       postLogger.debug(`Found cover image for post ${post} in format ${format}`)
       return { post, format, data }
-    } catch {}
+    } catch { }
   }
   return null
 }
@@ -89,7 +90,7 @@ async function fetchRemoteCover(post: string, url: URL): Promise<Cover | null> {
 async function getCoverFromMeta(post: string): Promise<Cover | null> {
   try {
     const meta = await import(
-      new URL(`${post}/meta.json`, POSTS_FOLDER).pathname
+      join(POSTS_FOLDER, post, 'meta.json')
     )
     if (!meta?.cover) return null
 
@@ -208,15 +209,15 @@ export async function handlePosts(): Promise<string> {
   await Promise.all(
     covers.map(async (cover) => {
       try {
-        const POST_FOLDER = new URL(`${cover.post}/`, POSTS_ASSETS_FOLDER)
-        await makeDirectoryIfNotExists(POST_FOLDER.pathname)
+        const POST_FOLDER = join(POSTS_ASSETS_FOLDER, cover.post)
+        await makeDirectoryIfNotExists(POST_FOLDER)
 
         // Process all sizes for each cover in parallel
         await Promise.all(
           COVER_IMG_SETTINGS.map(async (settings) => {
             const { prefix, suffix, format = 'webp' } = settings
             const key = `${prefix || ''}cover${suffix ? `-${suffix}` : ''}`
-            const output = new URL(`${key}.${format}`, POST_FOLDER).pathname
+            const output = join(POST_FOLDER, `${key}.${format}`)
 
             postLogger.info(`Converting image to ${output}`)
             await processImage(cover.data, settings, output)

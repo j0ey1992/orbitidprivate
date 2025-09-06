@@ -1,12 +1,16 @@
 import { access, constants, mkdir, readdir } from 'node:fs/promises'
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { logger } from './logger'
 
-const ROOT_FOLDER = new URL('../..', import.meta.url)
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const ROOT_FOLDER = resolve(__dirname, '../..')
 
-export const POSTS_FOLDER = new URL('./posts/', ROOT_FOLDER)
-export const ASSETS_FOLDER = new URL('./build-assets/', ROOT_FOLDER)
-export const POSTS_ASSETS_FOLDER = new URL('./posts/', ASSETS_FOLDER)
-export const AUTHORS_ASSETS_FOLDER = new URL('./authors/', ASSETS_FOLDER)
+export const POSTS_FOLDER = resolve(ROOT_FOLDER, 'posts')
+export const ASSETS_FOLDER = resolve(ROOT_FOLDER, 'build-assets')
+export const POSTS_ASSETS_FOLDER = resolve(ASSETS_FOLDER, 'posts')
+export const AUTHORS_ASSETS_FOLDER = resolve(ASSETS_FOLDER, 'authors')
 
 export const makeDirectoryIfNotExists = async (path: string) => {
   try {
@@ -18,7 +22,7 @@ export const makeDirectoryIfNotExists = async (path: string) => {
 }
 
 export const getPostDirectories = async () => {
-  const files = await readdir(POSTS_FOLDER.pathname)
+  const files = await readdir(POSTS_FOLDER)
   logger.debug('Found posts:', files)
   return files.filter((file) => file !== '.DS_Store')
 }

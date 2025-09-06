@@ -1,4 +1,5 @@
 import sharp from 'sharp'
+import { join } from 'node:path'
 import type { BlogPostMetadata } from '~/utils/blog/metadata'
 import { logger } from './logger'
 import type { ImageSettings } from './types'
@@ -174,11 +175,9 @@ async function extractUniqueAuthors(posts: string[]): Promise<Set<string>> {
   const foundAuthors = new Set<string>()
 
   for (const post of posts) {
-    const path = new URL(`${post}/meta.json`, POSTS_FOLDER).pathname
+    const path = join(POSTS_FOLDER, post, 'meta.json')
     try {
-      const meta: BlogPostMetadata = await import(
-        new URL(`${post}/meta.json`, POSTS_FOLDER).pathname
-      )
+      const meta: BlogPostMetadata = await import(path)
       meta.authors.forEach((author) => foundAuthors.add(author))
     } catch (error) {
       authorLogger.error(
@@ -250,8 +249,7 @@ async function processAvatar(
     const validatedSettings = validateImageSettings(settings)
     const { prefix, suffix, width, height, format } = validatedSettings
     const key = `${prefix}avatar${suffix ? `-${suffix}` : ''}`
-    const output = new URL(`${author}/${key}.${format}`, AUTHORS_ASSETS_FOLDER)
-      .pathname
+    const output = join(AUTHORS_ASSETS_FOLDER, author, `${key}.${format}`)
 
     authorLogger.info(`Converting avatar for ${author} to ${output}`)
 
@@ -303,9 +301,8 @@ function generateTypeScriptExports(
       for (const settings of AVATAR_IMG_SETTINGS) {
         const { prefix, suffix, format } = settings
         const key = `${prefix || ''}avatar${suffix ? `-${suffix}` : ''}`
-        result += `    '${key}': import('./authors/${author}/${key}.${
-          format || 'webp'
-        }').then(asset => asset.default),\n`
+        result += `    '${key}': import('./authors/${author}/${key}.${format || 'webp'
+          }').then(asset => asset.default),\n`
       }
     }
 
@@ -371,7 +368,7 @@ export async function handleAuthors(): Promise<string> {
     Object.entries(authorData).map(async ([author, data]) => {
       try {
         await makeDirectoryIfNotExists(
-          new URL(`${author}`, AUTHORS_ASSETS_FOLDER).pathname,
+          join(AUTHORS_ASSETS_FOLDER, author)
         )
 
         // Process avatar if available

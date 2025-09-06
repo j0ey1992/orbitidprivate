@@ -14,9 +14,9 @@ async function main() {
   logger.info('Starting asset build process')
 
   // Make sure assets folder exists
-  await makeDirectoryIfNotExists(ASSETS_FOLDER.pathname)
-  await makeDirectoryIfNotExists(POSTS_ASSETS_FOLDER.pathname)
-  await makeDirectoryIfNotExists(AUTHORS_ASSETS_FOLDER.pathname)
+  await makeDirectoryIfNotExists(ASSETS_FOLDER)
+  await makeDirectoryIfNotExists(POSTS_ASSETS_FOLDER)
+  await makeDirectoryIfNotExists(AUTHORS_ASSETS_FOLDER)
 
   // Run cover and avatar processing in parallel
   logger.info('Processing covers and avatars in parallel')
@@ -28,7 +28,7 @@ async function main() {
   // Write the final output
   logger.info('Writing final output')
   const output = await writeOutput([coverOutput, avatarOutput])
-  await writeFile(`${ASSETS_FOLDER.pathname}/assets.gen.ts`, output, 'utf8')
+  await writeFile(`${ASSETS_FOLDER}/assets.gen.ts`, output, 'utf8')
 
   logger.success('Asset build process completed successfully')
 }
