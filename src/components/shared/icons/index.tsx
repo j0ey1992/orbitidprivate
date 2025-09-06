@@ -209,35 +209,80 @@ export const MessageBubbleIcon = (props: Props) => (
   </svg>
 )
 
-export const EnsNavIcon = (props: Props) => (
+export const OrbitIDNavIcon = (props: Props) => (
   <svg
     width="36"
-    height="41"
-    viewBox="0 0 36 41"
+    height="36"
+    viewBox="0 0 36 36"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
+    <defs>
+      <linearGradient id="navGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#1e3a8a" />
+        <stop offset="50%" stopColor="#7c3aed" />
+        <stop offset="100%" stopColor="#06b6d4" />
+      </linearGradient>
+    </defs>
     <g>
-      <path
-        d="M17.0679 0.872362L6.02054 19.05C5.9339 19.1925 5.73261 19.2084 5.62514 19.0808C4.65258 17.926 1.02927 13.0132 5.51274 8.53546C9.60393 4.44952 14.815 1.53633 16.7462 0.529473C16.9653 0.41524 17.1961 0.66136 17.0679 0.872362Z"
-        fill="currentColor"
+      {/* Outer orbital ring */}
+      <circle
+        cx="18"
+        cy="18"
+        r="15"
+        fill="none"
+        stroke="url(#navGradient)"
+        strokeWidth="1.5"
+        opacity="0.6"
       />
-      <path
-        d="M16.4569 40.4508C16.6774 40.6052 16.949 40.342 16.8013 40.1172C14.3337 36.3641 6.13115 23.8765 4.99806 22.002C3.88045 20.153 1.6823 17.0802 1.49892 14.4513C1.48062 14.1889 1.11771 14.1356 1.02642 14.3824C0.879189 14.7804 0.722441 15.2555 0.576352 15.7982C-1.26789 22.6492 1.41052 29.919 7.22746 33.9906L16.4569 40.4509V40.4508Z"
-        fill="currentColor"
+      
+      {/* Middle orbital ring - tilted */}
+      <ellipse
+        cx="18"
+        cy="18"
+        rx="11"
+        ry="8"
+        fill="none"
+        stroke="url(#navGradient)"
+        strokeWidth="1.2"
+        opacity="0.7"
+        transform="rotate(25 18 18)"
       />
-      <path
-        d="M17.9743 40.1276L29.0217 21.95C29.1083 21.8075 29.3096 21.7916 29.4171 21.9192C30.3896 23.0739 34.0129 27.9867 29.5295 32.4645C25.4383 36.5504 20.2273 39.4636 18.296 40.4705C18.0769 40.5847 17.8461 40.3386 17.9743 40.1276Z"
-        fill="currentColor"
+      
+      {/* Inner orbital ring - counter-tilted */}
+      <ellipse
+        cx="18"
+        cy="18"
+        rx="7"
+        ry="4"
+        fill="none"
+        stroke="url(#navGradient)"
+        strokeWidth="1"
+        opacity="0.8"
+        transform="rotate(-35 18 18)"
       />
-      <path
-        d="M18.5974 0.5467C18.3769 0.392379 18.1053 0.655555 18.253 0.880301C20.7206 4.63343 28.9232 17.121 30.0562 18.9955C31.1739 20.8445 33.372 23.9173 33.5554 26.5462C33.5737 26.8087 33.9366 26.862 34.0279 26.6152C34.1751 26.2171 34.3319 25.742 34.478 25.1993C36.3222 18.3484 33.6438 11.0786 27.8268 7.00693L18.5974 0.5467Z"
-        fill="currentColor"
-      />
+      
+      {/* Central core with gradient */}
+      <circle cx="18" cy="18" r="2.5" fill="url(#navGradient)" />
+      
+      {/* Main orbital objects */}
+      <circle cx="18" cy="5" r="1.5" fill="#1e3a8a" opacity="0.9" />
+      <circle cx="31" cy="18" r="1.2" fill="#7c3aed" opacity="0.8" />
+      <circle cx="18" cy="31" r="1.4" fill="#06b6d4" opacity="0.9" />
+      <circle cx="5" cy="18" r="1.3" fill="#7c3aed" opacity="0.7" />
+      
+      {/* Smaller orbital objects */}
+      <circle cx="26" cy="10" r="0.8" fill="#06b6d4" opacity="0.6" />
+      <circle cx="26" cy="26" r="1" fill="#1e3a8a" opacity="0.6" />
+      <circle cx="10" cy="26" r="0.9" fill="#7c3aed" opacity="0.5" />
+      <circle cx="10" cy="10" r="0.7" fill="#06b6d4" opacity="0.5" />
     </g>
   </svg>
 )
+
+// Keep the old name for backward compatibility
+export const EnsNavIcon = OrbitIDNavIcon
 
 export const ArrowRightIcon = (props: Props) => (
   <svg
@@ -325,5 +370,136 @@ export const LinkSVG = (props: Props) => (
       fill="currentColor"
       d="m46.243 42.728 1.514 1.515a6 6 0 0 0 8.486-8.486l-1.515-1.514c-7.03-7.03-18.427-7.03-25.456 0l-23.03 23.03c-7.029 7.029-7.029 18.425 0 25.455l6.03 6.03c7.03 7.029 18.427 7.029 25.456 0l9.515-9.515a6 6 0 1 0-8.486-8.486l-9.514 9.515a6 6 0 0 1-8.486 0l-6.03-6.03a6 6 0 0 1 0-8.485l23.03-23.03a6 6 0 0 1 8.486 0Z"
     />
+  </svg>
+)
+
+export const RevenueShareIcon = (props: Props) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <defs>
+      <linearGradient id="revenueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#8b5cf6" />
+        <stop offset="50%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#10b981" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M12 2L13.09 8.26L20 9L13.09 15.74L12 22L10.91 15.74L4 9L10.91 8.26L12 2Z"
+      fill="url(#revenueGradient)"
+    />
+    <circle cx="12" cy="9" r="2" fill="white" fillOpacity="0.9" />
+    <path
+      d="M8 15L16 15"
+      stroke="white"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeOpacity="0.9"
+    />
+  </svg>
+)
+
+export const UnlimitedPotentialIcon = (props: Props) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <defs>
+      <linearGradient id="unlimitedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#8b5cf6" />
+        <stop offset="50%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#10b981" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M4.5 16.5C4.5 19.537 6.963 22 10 22H14C17.037 22 19.5 19.537 19.5 16.5V7.5C19.5 4.463 17.037 2 14 2H10C6.963 2 4.5 4.463 4.5 7.5V16.5Z"
+      fill="url(#unlimitedGradient)"
+      fillOpacity="0.1"
+      stroke="url(#unlimitedGradient)"
+      strokeWidth="2"
+    />
+    <path
+      d="M12 6V10L16 12L12 14V18"
+      stroke="url(#unlimitedGradient)"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    />
+    <circle cx="12" cy="12" r="1.5" fill="url(#unlimitedGradient)" />
+    <path
+      d="M8 8L10 10"
+      stroke="url(#unlimitedGradient)"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeOpacity="0.7"
+    />
+    <path
+      d="M16 8L14 10"
+      stroke="url(#unlimitedGradient)"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeOpacity="0.7"
+    />
+  </svg>
+)
+
+export const CustomPricingIcon = (props: Props) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <defs>
+      <linearGradient id="pricingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#8b5cf6" />
+        <stop offset="50%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#10b981" />
+      </linearGradient>
+    </defs>
+    <rect
+      x="3"
+      y="6"
+      width="18"
+      height="12"
+      rx="3"
+      fill="url(#pricingGradient)"
+      fillOpacity="0.1"
+      stroke="url(#pricingGradient)"
+      strokeWidth="2"
+    />
+    <path
+      d="M7 6V4C7 3.448 7.448 3 8 3H16C16.552 3 17 3.448 17 4V6"
+      stroke="url(#pricingGradient)"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <path
+      d="M12 10V14"
+      stroke="url(#pricingGradient)"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M10 12H14"
+      stroke="url(#pricingGradient)"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+    />
+    <circle cx="8" cy="21" r="1" fill="url(#pricingGradient)" />
+    <circle cx="12" cy="21" r="1" fill="url(#pricingGradient)" />
+    <circle cx="16" cy="21" r="1" fill="url(#pricingGradient)" />
   </svg>
 )

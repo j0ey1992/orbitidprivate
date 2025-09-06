@@ -1,20 +1,20 @@
 {
   "nav": {
-    "developers": "Developers",
-    "ecosystem": "Ecosystem",
-    "governance": "Governance",
-    "blog": "Blog",
+    "developers": "Features",
+    "ecosystem": "Identity",
+    "governance": "Brand",
+    "blog": "Platform",
     "roadmap": "Roadmap",
     "launch": "Launch App",
-    "ensv2": "ENSv2"
+    "ensv2": "Multi-TLD"
   },
   "home": {
     "hero": {
-      "title": "Welcome to the",
-      "subtitle": "New Internet",
-      "text": "For every dreamer, creator, and change-maker tired of the old internet, Web3 is here. ENS is more than a protocol - it's a commitment to a better web, built for everyone.",
+      "title": "Welcome to",
+      "subtitle": "OrbitID",
+      "text": "The revenue-sharing Web3 identity protocol. Launch unlimited branded domains, earn 50% of registrations, and own tokenized naming rights. Built on Cronos with full ENS compatibility.",
       "input": {
-        "caption": "Register your name today",
+        "caption": "Start earning with your domain",
         "placeholder": "Register your name",
         "register": "Register",
         "view": "View",
@@ -22,68 +22,89 @@
       }
     },
     "features": {
-      "title": "Your name",
-      "text": "Your ENS name is anchored in Web3, but works across the internet. It's your identity: simple, memorable, unmistakably yours.",
+      "title": "Revolutionary Web3 Identity Protocol",
+      "text": "OrbitID transforms how projects create and monetize naming services. Built on Cronos with ENS compatibility, unlimited TLDs, and transparent revenue sharing.",
       "farewell": {
-        "title": "Farewell to complexity.",
-        "text": "No more confusing hex addresses. Your ENS name is easy to remember, easy to share.",
+        "title": "Infinite Top-Level Domains",
+        "text": "Unlike ENS's single .eth domain, OrbitID enables unlimited TLDs. Any project can create .fox, .vvs, .cronos or their own branded domain instantly.",
         "animation": {
-          "m1": "What's your crypto address so I can pay you?",
-          "m2": "0x0b08dA7068b73A579Bd5E8a8290ff8afd37bc32A",
-          "m3": "Wow. Go to ens.app",
-          "m4": "This is so much simpler! Send to\nmynewname.eth"
+          "m1": "Ready to launch your .myproject domain?",
+          "m2": "With ENS: Sorry, only .eth is available",
+          "m3": "With OrbitID: Absolutely! Deploy in minutes",
+          "m4": "Your community now has\nmyproject.com and .myproject domains!"
         }
       },
       "consistent": {
-        "title": "Consistent across the internet.",
-        "text": "Keep your identity consistent across all services and platforms effortlessly. Say goodbye to juggling multiple usernames.",
-        "swapButton": "Swap"
+        "title": "Built-in Revenue Sharing",
+        "text": "Earn 50% of all registrations and renewals automatically. No complex integrations - just transparent, immediate revenue distribution to TDR holders.",
+        "swapButton": "Earn"
       },
       "ownership": {
-        "title": "True ownership.",
-        "text": "Your ENS name is 100% yours. No intermediaries, no bureaucracy. It's your property—uncensored and irrevocable."
+        "title": "Own Part of the Protocol",
+        "text": "Purchase Tokenized Domain Rights (TDRs) to own naming rights for any TLD. Receive 50% of all revenue from your domains, creating sustainable passive income."
       },
       "farcaster": {
-        "title": "Home"
+        "title": "Protocol"
       }
     },
     "gyow": {
-      "title": "Blaze your own trail",
-      "description": "Discover your unique path in the ENS ecosystem. Wherever you begin, we’re all moving towards a better internet.",
+      "title": "Start Earning with OrbitID Today",
+      "description": "Join Web3 projects already generating revenue through OrbitID. Whether you're registering names, launching domains, or investing in TDRs - your earnings start immediately.",
       "ens-app": {
-        "title": "ENS App",
-        "description": "Your ENS journey begins here, by registering your name."
+        "title": "Register & Start Using",
+        "description": "Get your OrbitID name across multiple TLDs and experience the future of Web3 identity on Cronos."
       },
       "ens-dao": {
-        "title": "ENS DAO",
-        "description": "Join the ENS community to contribute alongside a global collective."
+        "title": "Launch Your TLD",
+        "description": "Deploy your community's branded domain and start earning 50% of all registrations within minutes."
       },
       "docs": {
-        "title": "Developer Docs",
-        "description": "You're a developer, and you want to build on the new internet."
+        "title": "Build & Integrate",
+        "description": "Integrate OrbitID's multi-TLD protocol into your dApp and unlock new revenue opportunities."
+      }
+    },
+    "orbit": {
+      "title": "Monetize Your Community with OrbitID",
+      "description": "Turn your project into a revenue-generating naming service. Launch branded domains, earn 50% of all sales, and create sustainable income streams for your community.",
+      "cards": {
+        "create": {
+          "title": "Launch Your Branded TLD",
+          "description": "Deploy .yourproject domains instantly. Full control over pricing, registration policies, and branding - ready in under 5 minutes.",
+          "link": "https://docs.orbitid.domains/tdr/overview"
+        },
+        "sell": {
+          "title": "Automatic 50/50 Revenue Split",
+          "description": "Every registration and renewal sends 50% directly to your wallet. No fees, no delays, no complex accounting - just immediate income.",
+          "link": "https://docs.orbitid.domains/economics/revenue-split"
+        },
+        "own": {
+          "title": "Invest in Protocol Growth",
+          "description": "Purchase TDRs to own multiple domain extensions. Diversify your Web3 portfolio with revenue-generating naming assets.",
+          "link": "https://docs.orbitid.domains/tdr/what-is-tdr"
+        }
       }
     },
     "gateway": {
-      "title": "Your gateway to the New Internet",
-      "description": "Envision a world where the internet and Web3 seamlessly connect, creating a unified, innovative experience."
+      "title": "The Future of Web3 Monetization",
+      "description": "OrbitID enables every project to become a revenue-generating naming service. Join the protocol creating sustainable income streams for the entire Cronos ecosystem."
     },
     "partners": {
-      "tag": "Key Partners",
-      "description": "These partners are revolutionizing the internet alongside ENS, creating new standards and forging strong alliances.",
-      "button": "Discover the ENS Ecosystem"
+      "tag": "Revenue-Generating Partners",
+      "description": "These protocols are already earning through OrbitID's 50/50 revenue split model, creating new income streams while serving their communities.",
+      "button": "Start Earning with OrbitID"
     },
     "extra": {
       "governance": {
-        "title": "A public good, shaped by you",
-        "tag": "Governance",
-        "description": "ENS is a community-driven non-profit. Join us in creating an internet where everyone has a voice.",
-        "button": "Learn about ENS Governance"
+        "title": "Decentralized Revenue Protocol",
+        "tag": "Economics",
+        "description": "OrbitID's transparent revenue sharing ensures every TLD owner earns fairly. Built on Cronos with immutable smart contracts governing all distributions.",
+        "button": "View Protocol Economics"
       },
       "community": {
         "tag": "Community",
-        "title": "Join our community",
-        "description": "Be part of the movement transforming the internet. Connect with like-minded individuals, share ideas, and collaborate on projects that make a difference.",
-        "button": "Join Us"
+        "title": "Join the earning ecosystem",
+        "description": "Connect with projects already generating revenue through OrbitID. Share strategies, launch collaborations, and build the future of monetized Web3 identity.",
+        "button": "Join Revenue Community"
       }
     },
     "stats": {
@@ -259,21 +280,21 @@
     "help": "Need help?",
     "support": "Support",
     "contact": "Contact",
-    "ens": "ENS",
+    "ens": "OrbitID",
     "privacy-policy": "Privacy Policy",
     "tou": "Terms of Use",
     "bugs": "Bug Bounty",
     "brand": "Brand",
     "jobs": "Jobs",
-    "ltd": "ENS, Copyright, 2025. All Rights Reserved."
+    "ltd": "OrbitID, Copyright, 2025. All Rights Reserved."
   },
   "seo": {
-    "description": "Welcome to the new internet."
+    "description": "OrbitID - Multi-TLD naming system for Cronos with ENS compatibility."
   },
   "brand": {
     "header": {
-      "title": "ENS Brand",
-      "description": "You're free to use the ENS brand in the ecosystem, but we must grant you a license before you do. Reach out to our General Counsel, Alexander Urbelis, at alex@ens[.]domains, to request a trademark license agreement.\n\n Just remember, don't use it to pretend to be ENS, ENS DAO, or ENS Labs, or to suggest a partnership that does not exist because those sorts of things will violate the license."
+      "title": "OrbitID Brand",
+      "description": "You're free to use the OrbitID brand in the Cronos ecosystem. OrbitID is an open protocol that enables projects to create their own top-level domains (.fox, .vvs, .cronos) while maintaining full ENS compatibility. Please use the brand responsibly and in alignment with our community values."
     },
     "button": "Download All",
     "links": {

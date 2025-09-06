@@ -1,0 +1,68 @@
+<svg width="180" height="36" viewBox="0 0 180 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="orbitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- OrbitID Mark - Sophisticated orbital design -->
+  <g transform="translate(2,2)">
+    <!-- Outer orbital ring -->
+    <circle cx="16" cy="16" r="14" fill="none" stroke="url(#orbitGradient)" stroke-width="1.5" opacity="0.8"/>
+    
+    <!-- Middle orbital ring -->
+    <ellipse cx="16" cy="16" rx="10" ry="8" fill="none" stroke="url(#orbitGradient)" stroke-width="1.2" opacity="0.9" transform="rotate(25 16 16)"/>
+    
+    <!-- Inner orbital ring -->
+    <ellipse cx="16" cy="16" rx="6" ry="4" fill="none" stroke="url(#orbitGradient)" stroke-width="1" opacity="1" transform="rotate(-35 16 16)"/>
+    
+    <!-- Central core with enhanced glow -->
+    <circle cx="16" cy="16" r="2.5" fill="url(#orbitGradient)" filter="url(#glow)"/>
+    
+    <!-- Orbital objects with brighter colors -->
+    <circle cx="16" cy="4" r="1.8" fill="#60a5fa" opacity="0.9"/>
+    <circle cx="28" cy="16" r="1.5" fill="#a78bfa" opacity="0.8"/>
+    <circle cx="16" cy="28" r="1.6" fill="#34d399" opacity="0.9"/>
+    <circle cx="4" cy="16" r="1.4" fill="#a78bfa" opacity="0.7"/>
+    
+    <!-- Additional small orbital objects -->
+    <circle cx="24" cy="8" r="1" fill="#34d399" opacity="0.6"/>
+    <circle cx="24" cy="24" r="1.2" fill="#60a5fa" opacity="0.6"/>
+    <circle cx="8" cy="24" r="1.1" fill="#a78bfa" opacity="0.5"/>
+    <circle cx="8" cy="8" r="0.9" fill="#34d399" opacity="0.5"/>
+  </g>
+  
+  <!-- OrbitID Text with white color for dark theme -->
+  <g transform="translate(40,6)">
+    <!-- O -->
+    <path d="M0 9C0 4.03 4.03 0 9 0C13.97 0 18 4.03 18 9V15C18 19.97 13.97 24 9 24C4.03 24 0 19.97 0 15V9ZM4.5 9V15C4.5 17.48 6.52 19.5 9 19.5C11.48 19.5 13.5 17.48 13.5 15V9C13.5 6.52 11.48 4.5 9 4.5C6.52 4.5 4.5 6.52 4.5 9Z" fill="#ffffff"/>
+    
+    <!-- R -->
+    <path d="M22 0H30C34.42 0 38 3.58 38 8V10C38 13.31 35.69 16.12 32.66 17.16L38.5 23.5H32.5L27.5 18H26.5V23.5H22V0ZM26.5 4.5V13.5H30C31.93 13.5 33.5 11.93 33.5 10V8C33.5 6.07 31.93 4.5 30 4.5H26.5Z" fill="#ffffff"/>
+    
+    <!-- B -->
+    <path d="M42 0H50C54.42 0 58 3.58 58 8V9C58 11.21 56.79 13.16 55 14.27C56.79 15.38 58 17.33 58 19.5V20C58 20.83 57.17 21.5 56.5 21.5H56C56 22.33 55.17 23 54.5 23H54C54 23.55 53.55 24 53 24H42V0ZM46.5 4.5V10.5H50C51.38 10.5 52.5 9.38 52.5 8V7C52.5 5.62 51.38 4.5 50 4.5H46.5ZM46.5 15V19.5H51C52.38 19.5 53.5 18.38 53.5 17V16C53.5 14.62 52.38 13.5 51 13.5H46.5Z" fill="#ffffff"/>
+    
+    <!-- I -->
+    <rect x="62" y="0" width="4.5" height="24" fill="#ffffff"/>
+    
+    <!-- T -->
+    <rect x="70" y="0" width="16" height="4.5" fill="#ffffff"/>
+    <rect x="76" y="0" width="4.5" height="24" fill="#ffffff"/>
+    
+    <!-- I -->
+    <rect x="90" y="0" width="4.5" height="24" fill="#ffffff"/>
+    
+    <!-- D -->
+    <path d="M98 0H108C113.52 0 118 4.48 118 10V14C118 19.52 113.52 24 108 24H98V0ZM102.5 4.5V19.5H108C110.76 19.5 113 17.26 113 14V10C113 6.74 110.76 4.5 108 4.5H102.5Z" fill="#ffffff"/>
+  </g>
+</svg>

@@ -5,10 +5,10 @@
   left: 0;
   width: 100%;
   box-sizing: border-box;
-  z-index: 10;
+  z-index: 1000;
 
   gap: 2rem;
-  padding: 16px 30px;
+  padding: 8px 30px;
   flex-direction: column;
   height: max-content;
   justify-content: flex-start;
@@ -25,25 +25,45 @@
   width: 1rem;
 }
 
+.desktopOnly {
+  display: block;
+  height: 64px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.desktopOnly:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.3));
+}
+
 .launch {
-  background-color: var(--ens-blue);
-  color: var(--ens-gray-2);
+  background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #06b6d4 100%);
+  color: white;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+  transition: all 0.3s ease;
 }
 
 .launch:hover {
-  background-color: var(--ens-hover-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+  border-color: rgba(96, 165, 250, 0.5);
 }
 
 .link {
-  color: var(--current-link, var(--ens-blue));
+  color: rgba(255, 255, 255, 0.8);
   font-family: var(--ens-mono), monospace;
+  font-weight: 500;
+  transition: all 0.3s ease;
 
   padding-bottom: 20px;
   width: 100%;
 }
 
 .link:hover {
-  color: var(--link-hover, var(--ens-medium-blue));
+  color: #60a5fa;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
 }
 
 .navContent {
@@ -59,12 +79,9 @@
 .tabletOnly {
   display: none;
 
-  color: var(--ens-dark-blue);
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.desktopOnly {
-  display: block;
-}
 
 .links {
   gap: 20px;
@@ -76,8 +93,13 @@
   width: 12px;
   background: transparent;
   cursor: pointer;
+  transition: all 0.3s ease;
 
-  color: var(--ens-dark-blue);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.menuButton:hover {
+  color: #60a5fa;
 }
 
 .mobileMenu {
@@ -94,40 +116,56 @@
   .nav[data-open="false"] .navContent {
     display: none;
   }
+
   .nav[data-open="true"] .tabletOnly {
-    color: var(--ens-blue);
+    color: #60a5fa;
   }
+
   .nav[data-open="false"] {
     background: transparent;
   }
+
   .nav[data-open="true"] .menuButton {
-    color: var(--ens-blue);
+    color: #60a5fa;
   }
+
   .nav[data-open="true"] {
-    background: var(--ens-light-blue);
+    background:
+      radial-gradient(1200px 800px at 50% 0%, rgba(139, 92, 246, 0.20) 0%, transparent 50%),
+      radial-gradient(900px 600px at 100% 50%, rgba(59, 130, 246, 0.18) 0%, transparent 50%),
+      radial-gradient(700px 500px at 0% 50%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(10, 10, 15, 0.98) 20%, rgba(26, 26, 46, 0.98) 45%, rgba(22, 33, 62, 0.98) 70%, rgba(15, 15, 35, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
     height: 100%;
   }
+
   .link {
-    border-bottom: 1px solid var(--ens-blue);
+    border-bottom: 1px solid rgba(96, 165, 250, 0.3);
   }
+
   .launch {
     padding: 30px 0 !important;
     width: 100% !important;
     max-width: 458px;
   }
+
   .langWithApp {
     flex-direction: column-reverse;
     width: 100%;
     gap: 50px;
   }
+
   .navContent {
     gap: 20px;
   }
+
   .links {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
   }
+
   .launchCta {
     display: block;
     max-width: max-content;
@@ -138,11 +176,12 @@
 
 @media (min-width: 800px) {
   .nav {
-    padding: 12px 12px 12px 24px;
+    padding: 8px 12px 8px 24px;
     background-color: unset;
     height: auto;
     justify-content: space-between;
   }
+
   .nav::before {
     content: "";
     position: absolute;
@@ -150,46 +189,69 @@
     bottom: -20px;
     z-index: -1;
     transition: all 0.2s ease-in-out;
-    background: linear-gradient(180deg, #fff 0 5%, hsla(0, 0%, 100%, 0) 90%);
-    backdrop-filter: blur(4px);
-    mask: linear-gradient(
-      to top,
-      transparent 0%,
-      black 35% 100%,
-      transparent 100%
-    );
+    background:
+      radial-gradient(1200px 800px at 50% 0%, rgba(139, 92, 246, 0.25) 0%, transparent 50%),
+      radial-gradient(900px 600px at 100% 50%, rgba(59, 130, 246, 0.20) 0%, transparent 50%),
+      radial-gradient(700px 500px at 0% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(10, 10, 15, 0.98) 20%, rgba(26, 26, 46, 0.95) 45%, rgba(22, 33, 62, 0.95) 70%, rgba(15, 15, 35, 0.98) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
     opacity: 0;
   }
+
   .nav[data-opaque="true"]::before {
     opacity: 1;
   }
+
   .langWithApp,
   .links {
     gap: 28px;
   }
+
   .link {
-    color: var(--current-link, var(--ens-dark-blue));
+    color: rgba(255, 255, 255, 0.8);
     padding: unset;
     width: unset;
+    position: relative;
   }
+
+  .link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    transition: width 0.3s ease;
+  }
+
+  .link:hover::after {
+    width: 100%;
+  }
+
   .launch,
   .link {
     font-size: 14px !important;
   }
+
   .links,
   .navContent,
   .nav,
   .langWithApp {
     flex-direction: row;
   }
+
   .navContent {
     display: flex;
     gap: 80px;
     justify-content: flex-end;
   }
+
   .menuButton {
     display: none !important;
   }
+
   .mobileMenu {
     width: auto;
   }
@@ -199,8 +261,10 @@
   .tabletOnly {
     display: block;
   }
+
   .desktopOnly {
-    display: none;
+    display: block;
+    height: 48px;
   }
 }
 
@@ -209,20 +273,67 @@
     padding: 16px !important;
     font-size: 16px !important;
   }
+
   .link {
     font-size: 12px;
   }
 }
 
+@media (min-width: 800px) {
+
+  /* Modern compact desktop Launch App button */
+  .langWithApp .launch {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    font-weight: 500;
+    border-radius: 6px;
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    backdrop-filter: blur(10px);
+    color: #60a5fa;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0;
+    line-height: 1.2;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .langWithApp .launch::before {
+    display: none;
+  }
+
+  .langWithApp .launch:hover {
+    background: rgba(96, 165, 250, 0.15);
+    border-color: rgba(96, 165, 250, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(96, 165, 250, 0.2);
+    color: #93c5fd;
+  }
+}
+
 @media (min-width: 1280px) {
+
   .langWithApp,
   .links {
     gap: 40px;
   }
+
   .nav {
-    padding: 20px 16px 20px 36px;
+    padding: 10px 16px 10px 36px;
   }
+
   .link {
     font-size: 18px;
+  }
+  
+  .desktopOnly {
+    height: 72px;
+  }
+
+  /* Slightly larger compact button on larger screens */
+  .langWithApp .launch {
+    padding: 10px 18px !important;
+    font-size: 14px !important;
   }
 }

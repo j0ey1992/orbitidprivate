@@ -1,10 +1,16 @@
-import { EB_Garamond, Inter } from 'next/font/google'
+import { EB_Garamond, Inter, Space_Grotesk } from 'next/font/google'
 import localFont from 'next/font/local'
 
 const inter = Inter({
   weight: 'variable',
   variable: '--ens-sans-fb',
   subsets: ['cyrillic'],
+})
+
+const spaceGrotesk = Space_Grotesk({
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--orbitid-display',
+  subsets: ['latin'],
 })
 
 const ebGaramond = EB_Garamond({
@@ -91,6 +97,7 @@ const ABCMarist = localFont({
 
 export {
   inter,
+  spaceGrotesk,
   ebGaramond,
   ABCMarist,
   ABCMonumentGrotesk,

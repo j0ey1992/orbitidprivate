@@ -1,35 +1,44 @@
-import { createEnsPublicClient } from '@ensdomains/ensjs'
 import { validateName } from '@ensdomains/ensjs/utils'
-import { fallback, http } from 'viem'
-import { mainnet } from 'viem/chains'
 
-const publicClient = createEnsPublicClient({
-  chain: mainnet,
-  transport: fallback([
-    http(
-      'https://lb.drpc.org/ogrpc?network=ethereum&dkey=AgBISc2US0WgjMYhz9MRMJZsJaE8hzcR76fgOpXEh2H0',
-    ),
-    http(
-      'https://lb.drpc.org/ogrpc?network=ethereum&dkey=AnmpasF2C0JBqeAEzxVO8aR5N_OwLy8R8JyZPkfoZsMe',
-    ),
-    http('https://mainnet.gateway.tenderly.co/4imxc4hQfRjxrVB2kWKvTo'),
-  ]),
-})
+// OrbitID API base URL
+const ORBITID_API_BASE = 'https://api.orbitid.domains'
 
-export const checkBoxAvailable = async (name: string): Promise<boolean> => {
-  const res = await fetch(
-    `https://dotbox-worker.ens-cf.workers.dev/search?domain=${encodeURI(name)}.box`,
-  )
-  const json = await res.json()
+// Helper function to check OrbitID domain availability via API
+const checkOrbitIdAvailability = async (name: string, tld: string): Promise<boolean> => {
+  try {
+    validateName(`${name}.${tld}`)
 
-  if (json.data.status === 'INVALID_DOMAIN') {
-    throw new Error(json.data.status)
+    // For now, return a mock response since we don't have the actual OrbitID API endpoints
+    // TODO: Replace with actual OrbitID API calls when available
+    // const response = await fetch(`${ORBITID_API_BASE}/available?name=${name}&tld=${tld}`)
+    // const data = await response.json()
+    // return data.available
+
+    // Mock implementation: simulate availability based on name length and common patterns
+    if (name.length < 3) return false // Short names typically taken
+    if (['test', 'admin', 'www', 'api', 'app'].includes(name.toLowerCase())) return false // Common reserved names
+
+    // Simulate some randomness for demo purposes
+    const hash = name.split('').reduce((a, b) => {
+      a = ((a << 5) - a) + b.charCodeAt(0)
+      return a & a
+    }, 0)
+
+    return Math.abs(hash) % 3 !== 0 // ~66% availability rate for demo
+  } catch (error) {
+    console.warn(`Error checking availability for ${name}.${tld}:`, error)
+    return false
   }
-  return json.data.available
 }
 
-export const checkEthAvailable = async (name: string) => {
-  validateName(`${name}.eth`)
+export const checkFoxAvailable = async (name: string): Promise<boolean> => {
+  return checkOrbitIdAvailability(name, 'fox')
+}
 
-  return await publicClient.getAvailable({ name: `${name}.eth` })
+export const checkVvsAvailable = async (name: string): Promise<boolean> => {
+  return checkOrbitIdAvailability(name, 'vvs')
+}
+
+export const checkCronosAvailable = async (name: string): Promise<boolean> => {
+  return checkOrbitIdAvailability(name, 'cronos')
 }

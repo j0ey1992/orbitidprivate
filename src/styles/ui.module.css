@@ -46,7 +46,7 @@
 
 .serif {
   font-family: var(--ens-serif);
-  color: var(--ens-medium-blue);
+  color: var(--ens-gray-2);
   line-height: 112%;
 
   font-size: 20px;
@@ -59,32 +59,56 @@
 }
 
 .button {
-  background-color: var(--ens-blue);
-  color: var(--ens-gray-2);
-  font-weight: 500;
-  font-family: var(--ens-mono), monospace;
-  border-radius: 4px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #06b6d4 100%);
+  color: white;
+  font-weight: 600;
+  font-family: var(--ens-sans), sans-serif;
+  border-radius: 12px;
   text-align: center;
   width: 100%;
-  transition: 100ms;
+  transition: all 300ms ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
 
   padding: 20px 60px;
   font-size: 18px;
   letter-spacing: -0.36px;
   line-height: 96%;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 500ms;
+}
+
+.button:hover::before {
+  left: 100%;
 }
 
 .button-secondary {
-  background-color: var(--ens-light-blue);
+  background: var(--ens-light-blue);
   color: var(--ens-blue);
+  border: 2px solid var(--ens-blue);
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.1);
 }
 
 .button:hover {
-  background-color: var(--ens-hover-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
 }
 
 .button-secondary:hover {
   background-color: var(--ens-hover-light-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
 }
 
 .dots-bg {

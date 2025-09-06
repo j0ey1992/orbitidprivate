@@ -8,6 +8,7 @@ import {
   ABCMonumentGroteskSemiMono,
   ebGaramond,
   inter,
+  spaceGrotesk,
 } from 'fonts'
 import { dir } from 'i18next'
 import type { Metadata } from 'next'
@@ -27,8 +28,8 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
   return createMetadata(
     {
       title: {
-        template: '%s | ENS',
-        default: 'ENS',
+        template: '%s | OrbitID',
+        default: 'OrbitID',
       },
       description: t('seo.description'),
       path: '/',
@@ -53,7 +54,7 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
 }
 
 export const viewport = {
-  themeColor: '#0080bc',
+  themeColor: '#1e3a8a',
 }
 
 export default async function RootLayout(props: {
@@ -74,27 +75,27 @@ export default async function RootLayout(props: {
       entries: [
         {
           title: t('footer.feedback'),
-          link: 'https://docs.google.com/forms/d/e/1FAIpQLSfDzIszteoaqiayxUCpFLK1AgigoASHIPcsxFg8PZoS6R6Uzw/viewform?usp=sf_link',
+          link: 'https://discord.gg/cronos',
         },
         {
           title: t('footer.discord'),
-          link: 'https://chat.ens.domains',
+          link: 'https://discord.gg/cronos',
         },
         {
           title: t('footer.twitter'),
-          link: 'https://x.com/ensdomains',
+          link: 'https://x.com/cronos_chain',
         },
         {
           title: t('footer.github'),
-          link: 'https://github.com/ensdomains',
+          link: 'https://github.com/orbitid',
         },
         {
           title: t('footer.youtube'),
-          link: 'https://youtube.com/ensdomains',
+          link: 'https://youtube.com/@CronosChain',
         },
         {
           title: t('footer.forums'),
-          link: 'https://discuss.ens.domains',
+          link: 'https://discord.gg/cronos',
         },
       ],
     },
@@ -103,9 +104,9 @@ export default async function RootLayout(props: {
       entries: [
         {
           title: t('footer.support'),
-          link: 'https://support.ens.domains',
+          link: 'https://discord.gg/cronos',
         },
-        { title: t('footer.contact'), link: 'mailto:support@ens.domains' },
+        { title: t('footer.contact'), link: 'mailto:support@orbitid.domains' },
       ],
     },
     {
@@ -113,15 +114,15 @@ export default async function RootLayout(props: {
       entries: [
         {
           title: t('footer.privacy-policy'),
-          link: 'https://app.ens.domains/legal/privacy-policy',
+          link: 'https://app.orbitid.domains/legal/privacy-policy',
         },
         {
           title: t('footer.tou'),
-          link: 'https://app.ens.domains/legal/terms-of-use',
+          link: 'https://app.orbitid.domains/legal/terms-of-use',
         },
         {
           title: t('footer.bugs'),
-          link: 'https://immunefi.com/bug-bounty/ens/',
+          link: 'https://discord.gg/cronos',
         },
         {
           title: t('footer.brand'),
@@ -137,6 +138,7 @@ export default async function RootLayout(props: {
       dir={dir(lang)}
       className={clsx(
         inter.variable,
+        spaceGrotesk.variable,
         ebGaramond.variable,
         ABCMonumentGrotesk.variable,
         ABCMonumentGroteskMono.variable,
@@ -147,7 +149,7 @@ export default async function RootLayout(props: {
       <head>
         <script
           defer
-          data-domain="ens.domains"
+          data-domain="orbitid.domains"
           src="https://plausible.io/js/script.js"
         ></script>
         <link rel="icon" type="image/png" href="/favicon.png" />

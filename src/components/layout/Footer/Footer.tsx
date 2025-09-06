@@ -19,10 +19,10 @@ export const Footer: FC<{
       <footer className={styles.container}>
         <img
           className={styles.logo}
-          src="/assets/ens_logo_white.svg"
-          alt="ENS"
-          width={80}
-          height={91.285}
+          src="/logo.png"
+          alt="OrbitID"
+          width={120}
+          height={40}
         />
         <div className={styles.columns}>
           {footerItems.map((list) => (

@@ -3,25 +3,43 @@
 @import "./utils.css";
 
 @theme {
-  --color-ens-blue: #0080bc;
-  --color-ens-blue-hover: #0070a4;
-  --color-ens-blue-light: #cee1e8;
-  --color-ens-blue-light-hover: #d8e7ed;
-  --color-ens-blue-midnight: #093c52;
-  --color-ens-blue-dark: #011a25;
-  --color-ens-magenta: #f53293;
-  --color-ens-magenta-light: #f2c4da;
-  --color-ens-green: #007c23;
-  --color-ens-green-light: #c5ddcc;
-  --color-ens-yellow: #fff72f;
-  --color-ens-yellow-light: #f8f6d6;
-  --color-ens-orange: #f47600;
-  --color-ens-orange-light: #ffe2b4;
-  --color-ens-brown-dark: #674d49;
-  --color-ens-gray: #4a5c63;
-  --color-ens-gray-two: #e5e5e5;
-  --color-ens-gray-three: #c4c7c8;
-  --color-ens-white: #f6f6f6;
+  /* OrbitID/Cronos Color Palette */
+  --color-orbitid-primary: #1e3a8a; /* Deep space blue - primary brand color */
+  --color-orbitid-primary-hover: #1d4ed8;
+  --color-orbitid-secondary: #7c3aed; /* Purple - orbital energy */
+  --color-orbitid-secondary-hover: #8b5cf6;
+  --color-orbitid-accent: #06b6d4; /* Cyan - tech/space */
+  --color-orbitid-accent-hover: #0891b2;
+  --color-orbitid-success: #059669; /* Green - success states */
+  --color-orbitid-success-light: rgba(52, 211, 153, 0.15);
+  --color-orbitid-warning: #d97706; /* Orange - warning states */
+  --color-orbitid-warning-light: #fef3c7;
+  --color-orbitid-dark: #0f172a; /* Near black - dark mode */
+  --color-orbitid-light: #f8fafc; /* Off-white - light backgrounds */
+  --color-orbitid-neutral: rgba(96, 165, 250, 0.1); /* Subtle blue tint instead of gray */
+  --color-orbitid-neutral-light: rgba(167, 139, 250, 0.05);
+  --color-orbitid-neutral-dark: rgba(30, 58, 138, 0.8);
+  
+  /* Legacy ENS color mappings for compatibility */
+  --color-ens-blue: var(--color-orbitid-primary);
+  --color-ens-blue-hover: var(--color-orbitid-primary-hover);
+  --color-ens-blue-light: rgba(96, 165, 250, 0.15);
+  --color-ens-blue-light-hover: rgba(96, 165, 250, 0.25);
+  --color-ens-blue-midnight: var(--color-orbitid-dark);
+  --color-ens-blue-dark: var(--color-orbitid-dark);
+  --color-ens-magenta: var(--color-orbitid-secondary);
+  --color-ens-magenta-light: rgba(167, 139, 250, 0.15);
+  --color-ens-green: var(--color-orbitid-success);
+  --color-ens-green-light: rgba(52, 211, 153, 0.15);
+  --color-ens-yellow: #fbbf24;
+  --color-ens-yellow-light: var(--color-orbitid-warning-light);
+  --color-ens-orange: var(--color-orbitid-warning);
+  --color-ens-orange-light: var(--color-orbitid-warning-light);
+  --color-ens-brown-dark: var(--color-orbitid-neutral-dark);
+  --color-ens-gray: rgba(96, 165, 250, 0.2);
+  --color-ens-gray-two: rgba(167, 139, 250, 0.1);
+  --color-ens-gray-three: rgba(52, 211, 153, 0.15);
+  --color-ens-white: var(--color-orbitid-light);
 
   --leading-ens-none: 96%;
   --leading-ens-tight: 112%;
@@ -47,16 +65,22 @@
 
   body {
     margin: 0;
-    background: var(--ens-white);
-    color: var(--ens-dark-blue);
-    font-family: var(--ens-sans), var(--ens-sans-fb), sans-serif;
+    background: 
+      radial-gradient(ellipse at top, rgba(30, 58, 138, 0.4) 0%, transparent 45%),
+      radial-gradient(ellipse at bottom left, rgba(124, 58, 237, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, #020617 0%, #0a0f1c 25%, #1e293b 75%, #0f172a 100%);
+    color: #ffffff;
+    font-family: var(--orbitid-display), var(--ens-sans), var(--ens-sans-fb), sans-serif;
     font-feature-settings:
       "ss01" on,
       "ss03" on;
-    font-weight: 500;
+    font-weight: 400;
+    letter-spacing: -0.01em;
 
     max-width: 100vw;
     overflow-x: hidden;
+    min-height: 100vh;
   }
 
   html:lang(ru) body {
@@ -71,32 +95,53 @@
   }
 
   :root {
-    /* Colors */
-    --ens-blue: #0080bc;
-    --ens-light-blue: #cee1e8;
-    --ens-medium-blue: #093c52;
-    --ens-dark-blue: #011a25;
-    --ens-magenta: #f53293;
-    --ens-light-magenta: #f2c4da;
-    --ens-green: #007c23;
-    --ens-light-green: #c5ddcc;
-    --ens-dark-brown: #674d49;
-    --ens-light-yellow: #f8f6d6;
-    --ens-yellow: #fff72f;
-    --ens-gray-4: #4a5c63;
-    --ens-gray-3: #c4c7c8;
-    --ens-gray-2: #e5e5e5;
-    --ens-gray-1: #f6f6f6;
-    --ens-white: #f6f6f6;
+    /* OrbitID Primary Colors */
+    --orbitid-primary: #1e3a8a; /* Deep space blue */
+    --orbitid-secondary: #7c3aed; /* Orbital purple */
+    --orbitid-accent: #06b6d4; /* Tech cyan */
+    --orbitid-success: #059669; /* Success green */
+    --orbitid-warning: #d97706; /* Warning orange */
+    --orbitid-dark: #0f172a; /* Deep space */
+    --orbitid-light: #f8fafc; /* Light background */
+    --orbitid-neutral: rgba(96, 165, 250, 0.1); /* Subtle blue tint instead of gray */
+    --orbitid-neutral-light: rgba(167, 139, 250, 0.05); /* Light purple tint */
+    --orbitid-neutral-dark: rgba(30, 58, 138, 0.8); /* Dark blue tint */
+    
+    /* Legacy ENS mappings for compatibility */
+    --ens-blue: var(--orbitid-primary);
+    --ens-light-blue: rgba(96, 165, 250, 0.15);
+    --ens-medium-blue: var(--orbitid-dark);
+    --ens-dark-blue: var(--orbitid-dark);
+    --ens-magenta: var(--orbitid-secondary);
+    --ens-light-magenta: rgba(167, 139, 250, 0.15);
+    --ens-green: var(--orbitid-success);
+    --ens-light-green: rgba(52, 211, 153, 0.15);
+    --ens-dark-brown: #334155;
+    --ens-light-yellow: #fef3c7;
+    --ens-yellow: #fbbf24;
+    --ens-gray-4: rgba(96, 165, 250, 0.3);
+    --ens-gray-3: rgba(52, 211, 153, 0.2);
+    --ens-gray-2: rgba(167, 139, 250, 0.15);
+    --ens-gray-1: var(--orbitid-light);
+    --ens-white: var(--orbitid-light);
 
     /* Hover states */
-    --ens-hover-blue: rgba(0, 128, 188, 0.8);
-    --ens-hover-light-blue: #b9dae1;
-    --ens-hover-green: rgba(0, 124, 35, 0.8);
-    --ens-hover-magenta: rgba(245, 50, 148, 0.8);
+    --ens-hover-blue: #1d4ed8;
+    --ens-hover-light-blue: #bfdbfe;
+    --ens-hover-green: #047857;
+    --ens-hover-magenta: #8b5cf6;
 
-    --page-text: var(--ens-dark-blue);
-    --page-bg: var(--ens-light-blue);
+    --page-text: var(--orbitid-dark);
+    --page-bg: var(--orbitid-light);
+    
+    /* Ensure all ENS variables map to OrbitID colors */
+    --ens-white: var(--orbitid-light);
+    --ens-dark-blue: var(--orbitid-dark);
+    
+    /* OrbitID gradient themes */
+    --orbitid-gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #06b6d4 100%);
+    --orbitid-gradient-subtle: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #dbeafe 100%);
+    --orbitid-gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   }
 
   h1,
@@ -114,11 +159,17 @@
   /* TYPOGRAPHY */
 
   h1 {
-    font-weight: 500;
-    line-height: 96%;
-
-    font-size: 40px;
-    letter-spacing: -0.8px;
+    font-family: var(--orbitid-display), var(--ens-sans), sans-serif;
+    font-weight: 700;
+    line-height: 0.95;
+    background: linear-gradient(135deg, #60a5fa 0%, #c084fc 25%, #a78bfa 50%, #34d399 75%, #06b6d4 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 52px;
+    letter-spacing: -0.03em;
+    filter: drop-shadow(0 0 30px rgba(96, 165, 250, 0.4));
+    text-shadow: 0 0 40px rgba(167, 139, 250, 0.3);
   }
 
   html:lang(ru) h1 {
@@ -130,76 +181,98 @@
   }
 
   h2 {
-    font-weight: 500;
-    line-height: 90%;
-
-    font-size: 32px;
-    letter-spacing: -0.32px;
+    font-family: var(--orbitid-display), var(--ens-sans), sans-serif;
+    font-weight: 600;
+    line-height: 0.95;
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    text-shadow: 0 2px 20px rgba(96, 165, 250, 0.2);
   }
 
   h3 {
+    font-family: var(--orbitid-display), var(--ens-sans), sans-serif;
     font-style: normal;
-    font-weight: 500;
-    line-height: 96%;
-
-    font-size: 24px;
-    letter-spacing: -0.48px;
+    font-weight: 600;
+    line-height: 1.1;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    text-shadow: 0 2px 15px rgba(167, 139, 250, 0.15);
   }
 
   h4 {
+    font-family: var(--orbitid-display), var(--ens-sans), sans-serif;
     font-style: normal;
-    font-weight: 500;
-    line-height: 96%;
-
+    font-weight: 600;
+    line-height: 1.1;
     font-size: 24px;
-    letter-spacing: -2%;
+    letter-spacing: -0.01em;
+    color: #ffffff;
   }
 
   h5 {
-    font-weight: 500;
-    font-size: 16px;
+    font-family: var(--orbitid-display), var(--ens-sans), sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    letter-spacing: -0.005em;
   }
 
   p {
-    font-family: var(--ens-serif);
-    color: var(--ens-medium-blue);
-    font-size: 20px;
-    line-height: 112%;
+    font-family: var(--orbitid-display), var(--ens-sans), sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    line-height: 1.7;
+    font-weight: 400;
+    letter-spacing: -0.005em;
   }
 
   /* TYPOGRAPHY/TABLET */
   @media (min-width: 768px) {
     h1 {
-      font-size: 80px;
-      letter-spacing: -1.6px;
+      font-size: 90px;
+      letter-spacing: -0.04em;
     }
     h2 {
-      font-size: 64px;
-      letter-spacing: -1.28px;
+      font-size: 68px;
+      letter-spacing: -0.03em;
     }
     h3 {
-      font-size: 40px;
-      letter-spacing: -0.8px;
+      font-size: 44px;
+      letter-spacing: -0.02em;
+    }
+    h4 {
+      font-size: 28px;
+    }
+    p {
+      font-size: 20px;
     }
   }
 
   /* TYPOGRAPHY/DESKTOP */
   @media (min-width: 1280px) {
     h1 {
-      font-size: 124px;
-      letter-spacing: -3.72px;
+      font-size: 140px;
+      letter-spacing: -0.05em;
     }
     h2 {
-      font-size: 100px;
-      letter-spacing: -2px;
+      font-size: 110px;
+      letter-spacing: -0.04em;
     }
     h3 {
-      font-size: 64px;
-      letter-spacing: -1.28px;
+      font-size: 72px;
+      letter-spacing: -0.03em;
     }
     h4 {
-      font-size: 36px;
-      letter-spacing: -0.72px;
+      font-size: 42px;
+      letter-spacing: -0.02em;
+    }
+    h5 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 22px;
     }
   }
 
