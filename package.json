@@ -80,6 +80,5 @@
   },
   "bugs": {
     "url": "https://github.com/orbitid/orbitid-landing/issues"
-  },
-  "packageManager": "pnpm@10.10.0"
+  }
 }
